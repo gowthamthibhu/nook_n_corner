@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="en" data-bs-theme="light">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Nook 'n Corner</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  </head>
+  <body style="margin-bottom: 1pc;"> <!--style="background-color: #8B4C70;"-->
+    
+    <nav class="navbar sticky-top navbar-expand-lg" style="background-color: #8B4C70;" data-bs-theme="dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#" style="font-family: DancingScript; font-size: 2em; color: white;">Nook 'n Corner</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    
+    <div class="container" style="margin-top: 2pc;" align=center>
+        <h3 style="font-family: DancingScriptBold; font-size: 2em;">Store Name</h3>
+        <p>Type of Store</p>
+    </div>
+
+    <div align=center>
+        <p class="d-inline-flex gap-1">
+            <button class="btn btn-outline-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+              Filter
+            </button>
+            <button class="btn btn-outline-secondary" type="button">
+              PlaceHolder
+            </button>
+          </p>
+          <div class="collapse container" id="collapseExample">
+            <div class="card card-body">
+                <form>
+                    <div style="margin: 0.5pc;">
+                        <select class="form-select" aria-label="Default select example">
+                            <option selected disabled>Price</option>
+                            <option value="1">High to Low</option>
+                            <option value="2">Low to High</option>
+                          </select>
+                    </div>
+                    <div style="margin: 0.5pc;">
+                        <select class="form-select" aria-label="Default select example">
+                            <option selected disabled>Distance</option>
+                            <option value="1">Closer</option>
+                            <option value="2">Farther</option>
+                          </select>
+                    </div>
+                    <div style="margin: 0.5pc;">
+                        <button class="btn btn-outline-primary" type="submit" name="action">Apply Filter</button>
+                    </div>
+                </form>
+            </div>
+          </div>
+    </div>
+     
+    <!-- <div align=center style="margin-top: 1pc;">
+        <div id="carouselExampleIndicators" class="carousel carousel-dark slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <div class="card" style="width: 18rem;">
+                    <img src="https://imagesvc.meredithcorp.io/v3/mm/image?url=https:%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F19%2F-0001%2F11%2F30%2FGettyImages-644716198-2000.jpg" class="card-img-top" alt="..." style="height: 150px;">
+                    <div class="card-body">
+                      <h5 class="card-title">Grossary</h5>
+                      <a href="#" class="btn btn-primary">Explore</a>
+                    </div>
+                  </div>
+              </div>
+              <div class="carousel-item">
+                <div class="card" style="width: 18rem;">
+                    <img src="https://th.bing.com/th/id/OIP.omhmbPUqjIebTtKxF-NQHQHaE7?rs=1&pid=ImgDetMain" class="card-img-top" alt="..." style="height: 150px;">
+                    <div class="card-body">
+                      <h5 class="card-title">Food</h5>
+                      <a href="#" class="btn btn-primary">Explore</a>
+                    </div>
+                  </div>
+              </div>
+              <div class="carousel-item">
+                <div class="card" style="width: 18rem;">
+                    <img src="https://cdn.gobankingrates.com/wp-content/uploads/2020/01/woman-shopping-for-new-wardrobes-iStock-637750968.jpg" class="card-img-top" alt="..." style="height: 150px;">
+                    <div class="card-body">
+                      <h5 class="card-title">Clothes</h5>
+                      <a href="#" class="btn btn-primary">Explore</a>
+                    </div>
+                  </div>
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+    </div> -->
+
+    <div class="container" style="margin-top: 1pc;" align=center>
+        <h3 style="font-family: DancingScriptBold; font-size: 2em;">Offers</h3>
+
+        <div>
+            <div id="carouselExampleIndicators" class="carousel carousel-dark slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <div class="card" style="margin: 1pc">
+                        <div class="card-header">
+                          Available Offers
+                        </div>
+                        <div class="card-body">
+                          <h5 class="card-title">50% Discount</h5>
+                          <p class="card-text">On orders above 400</p>
+                        </div>
+                      </div>
+                  </div>
+                  <div class="carousel-item">
+                    <div class="card" style="margin: 1pc">
+                        <div class="card-header">
+                          Available Offers
+                        </div>
+                        <div class="card-body">
+                          <h5 class="card-title">20% Discount</h5>
+                          <p class="card-text">On payment with Debit Card</p>
+                        </div>
+                      </div>
+                  </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+              </div>
+        </div>
+    </div>
+
+    <div class="container" style="margin-top: 1pc;" align=center>
+        <h3 style="font-family: DancingScriptBold; font-size: 2em;">Products</h3>
+    </div>
+
+    <div class="container">
+        <div class="accordion" id="accordionExample">
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                  Recommended For You
+                </button>
+              </h2>
+              <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    <table class="table">
+                        <thead>
+                          <tr>
+                            <td>Product-1</td>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>Product-2</td>
+                          </tr>
+                          <tr>
+                            <td>Product-3</td>
+                          </tr>
+                          <tr>
+                            <td>Product-4</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                  Category - 2
+                </button>
+              </h2>
+              <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    <table class="table">
+                        <thead>
+                          <tr>
+                            <td>Product-1</td>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>Product-2</td>
+                          </tr>
+                          <tr>
+                            <td>Product-3</td>
+                          </tr>
+                          <tr>
+                            <td>Product-4</td>
+                          </tr>
+                        </tbody>
+                      </table>                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                  Category - 3
+                </button>
+              </h2>
+              <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    <table class="table">
+                        <thead>
+                          <tr>
+                            <td>Product-1</td>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>Product-2</td>
+                          </tr>
+                          <tr>
+                            <td>Product-3</td>
+                          </tr>
+                          <tr>
+                            <td>Product-4</td>
+                          </tr>
+                        </tbody>
+                      </table>                </div>
+              </div>
+            </div>
+          </div>
+    </div>
+
+    <style>
+    .center-block{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+    }
+    @font-face {
+        font-family: "DancingScript";
+        src: url("/static/DancingScript.woff") format("woff"); 
+    }
+    @font-face {
+        font-family: "DancingScriptBold";
+        src: url("/static/DancingScript-Bold.woff") format("woff"); 
+    }
+    </style>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  </body>
+</html>
