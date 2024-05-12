@@ -22,11 +22,14 @@
             </ul>
           </div>
         </div>
-      </nav>
-
+    </nav>
 
     <div class="container" style="margin-top: 2pc;" align=center>
-        <h3 style="font-family: DancingScriptBold; font-size: 2em;">Nearby Stores</h3>
+      <h3>placeholder</h3>
+    </div>
+
+    <div class="container" style="margin-top: 2pc;" align=center>
+        <h3>Available Stores</h3>
     </div>
 
     <div class="container" style="margin-top: 2pc;">
@@ -35,32 +38,7 @@
           <div class="card h-100">
             <img src="https://spar.com.mt/wp-content/uploads/2018/08/FormatSPAR.jpg" class="card-img-top" alt="..." style="height: 200px;">
             <div class="card-body">
-              <h5 class="card-title">SPAR India</h5>
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            </div>
-            <div class="card-footer">
-              <a href="#" class="btn btn-primary">See the details</a>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card h-100">
-            <img src="https://stockify.net.in/wp-content/uploads/2022/12/Reliance-Retail-The-Success-Story-of-Indias-Largest-Retailer-Brand.png" class="card-img-top" alt="..." style="height: 200px;">
-            <div class="card-body">
-              <h5 class="card-title">Reliance</h5>
-              <p class="card-text">Reliance Retail has the distinction of operating the largest consumer electronics store chain in India through a network of over 8,700 Reliance Digital and Jio stores.</p>
-            </div>
-            <div class="card-footer">
-              <a href="#" class="btn btn-primary">See the details</a>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card h-100">
-            <img src="https://i0.wp.com/www.indiaretailing.com/wp-content/uploads/2017/01/spencers.jpg?resize=681,400" class="card-img-top" alt="..." style="height: 200px;">
-            <div class="card-body">
-              <h5 class="card-title">Spencer's</h5>
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+              <h5 class="card-title">{{ storename }}</h5>
             </div>
             <div class="card-footer">
               <a href="#" class="btn btn-primary">See the details</a>
@@ -79,11 +57,11 @@
     }
     @font-face {
         font-family: "DancingScript";
-        src: url("DancingScript.woff") format("woff"); 
+        src: url("/static/DancingScript.woff") format("woff"); 
     }
     @font-face {
         font-family: "DancingScriptBold";
-        src: url("DancingScript-Bold.woff") format("woff"); 
+        src: url("/static/DancingScript-Bold.woff") format("woff"); 
     }
     </style>
 

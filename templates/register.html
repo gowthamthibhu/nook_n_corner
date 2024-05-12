@@ -25,9 +25,9 @@
       </nav>
     
     <div class="container" style="margin-top: 2pc;">
-        <h3 style="font-family: DancingScriptBold; font-size: 2em;" align=center>Login</h3>
+        <h3 align=center>Register</h3> <br>
         <div class="card">
-            <form method="POST" action="{{ url_for('login') }}">
+            <form method="POST" action="{{ url_for('register') }}">
                 <div class="card-body">
                   <h5 class="card-title">Username</h5>
                   <input type="email" class="form-control" id="exampleFormControlInput1" name="username" placeholder="Enter Username">
@@ -35,10 +35,15 @@
                   <h5 class="card-title">Password</h5>
                   <input type="email" class="form-control" id="exampleFormControlInput1" name="password" placeholder="Enter Password">
                   <br>
-                  <a href="">Click Here To Register</a>
+                  <h5 class="card-title">Select Store Type</h5>
+                  <select class="form-select" aria-label="Default select example">
+                    <option selected disabled>Store Type</option>
+                    <option value="grocery">Grocery</option>
+                    <option value="accessory">Accessory</option>
+                    <option value="clothing">Clothing</option>
+                  </select>
                   <br>
-                  <br>
-                  <button class="btn btn-outline-primary" name="action" type="submit">Login</button>
+                  <button class="btn btn-outline-primary" name="action" type="submit">Submit</button>
                 </div>
             </form>
           </div>
