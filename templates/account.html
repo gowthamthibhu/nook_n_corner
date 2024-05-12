@@ -17,7 +17,7 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
+                <a class="nav-link active" aria-current="page" href="#">Account</a>
               </li>
             </ul>
           </div>
@@ -25,76 +25,47 @@
       </nav>
     
     <div class="container" style="margin-top: 2pc;" align=center>
-        <h3 style="font-family: DancingScriptBold; font-size: 2em;">Spotlight</h3>
+        <h3 style="font-family: DancingScriptBold; font-size: 2em;">Account</h3>
     </div>
-     
-    <div align=center style="margin-top: 1pc;">
-        <div id="carouselExampleIndicators" class="carousel carousel-dark slide" data-bs-ride="carousel">
-            <div class="carousel-inner">
-              <div class="carousel-item active">
-                <div class="card" style="width: 18rem;">
-                    <img src="https://imagesvc.meredithcorp.io/v3/mm/image?url=https:%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F19%2F-0001%2F11%2F30%2FGettyImages-644716198-2000.jpg" class="card-img-top" alt="..." style="height: 150px;">
-                    <div class="card-body">
-                      <h5 class="card-title">Grossary</h5>
-                      <a href="#" class="btn btn-primary">Explore</a>
-                    </div>
-                  </div>
-              </div>
-              <div class="carousel-item">
-                <div class="card" style="width: 18rem;">
-                    <img src="https://th.bing.com/th/id/OIP.omhmbPUqjIebTtKxF-NQHQHaE7?rs=1&pid=ImgDetMain" class="card-img-top" alt="..." style="height: 150px;">
-                    <div class="card-body">
-                      <h5 class="card-title">Food</h5>
-                      <a href="#" class="btn btn-primary">Explore</a>
-                    </div>
-                  </div>
-              </div>
-              <div class="carousel-item">
-                <div class="card" style="width: 18rem;">
-                    <img src="https://cdn.gobankingrates.com/wp-content/uploads/2020/01/woman-shopping-for-new-wardrobes-iStock-637750968.jpg" class="card-img-top" alt="..." style="height: 150px;">
-                    <div class="card-body">
-                      <h5 class="card-title">Clothes</h5>
-                      <a href="#" class="btn btn-primary">Explore</a>
-                    </div>
-                  </div>
-              </div>
+
+    <div class="container" style="margin: 1pc;" align=left>
+        <div class="row">
+            <div class="col-4">
+                Store Name:
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Next</span>
-            </button>
-          </div>
+            <div class="col-8">
+                {{ storename }}
+            </div>
+        </div>
     </div>
 
-    <div class="container" style="margin-top: 2pc;" align=center>
-        <h3 style="font-family: DancingScriptBold; font-size: 2em;">Offers</h3>
-
-        <div>
-            <div class="card" style="margin: 1pc">
-                <div class="card-header">
-                  Featured Offers
-                </div>
-                <div class="card-body">
-                  <h5 class="card-title">50% Discount</h5>
-                  <p class="card-text">On Grossary and related items</p>
-                  <a href="#" class="btn btn-primary">Check out</a>
-                </div>
-              </div>
-            <div class="card" style="margin: 1pc">
-                <div class="card-header">
-                  Featured Offers
-                </div>
-                <div class="card-body">
-                  <h5 class="card-title">20% Discount</h5>
-                  <p class="card-text">On Food and related items</p>
-                  <a href="#" class="btn btn-primary">Check out</a>
-                </div>
-              </div>
-        </div>
+    <div class="container">
+        <p class="d-inline-flex gap-1">
+            <button class="btn btn-outline-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+              Add Discount
+            </button>
+          </p>
+          <div class="collapse" id="collapseExample">
+            <div class="card card-body">
+                <form method="POST" action="{{ url_for('login') }}">
+                    <input type="email" class="form-control" id="exampleFormControlInput1" name="password" placeholder="Enter a name for your discount"><br>
+                    <!-- <h5 class="card-title">Type of Item</h5> -->
+                    <select class="form-select" aria-label="Default select example">
+                      <option selected disabled>Type of Item</option>
+                      <option value="grocery">Grocery</option>
+                      <option value="accessory">Accessory</option>
+                      <option value="clothing">Clothing</option>
+                    </select>
+                    <br>
+                    <!-- <h5 class="card-title">Password</h5> -->
+                    <input type="email" class="form-control" id="exampleFormControlInput1" name="password" placeholder="Enter Validity">
+                    <br>
+                    <input type="email" class="form-control" id="exampleFormControlInput1" name="password" placeholder="Amount of Discount">
+                    <br>
+                    <button class="btn btn-outline-primary" name="action" type="submit">Submit</button>
+                </form>
+            </div>
+          </div>
     </div>
 
     <style>
