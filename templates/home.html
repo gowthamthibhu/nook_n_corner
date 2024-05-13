@@ -17,7 +17,7 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="{{ url_for('home') }}">Account</a>
+                <a class="nav-link active" aria-current="page" href="{{ url_for('home') }}">Home</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="{{ url_for('account') }}">Account</a>
@@ -101,11 +101,11 @@
     }
     @font-face {
         font-family: "DancingScript";
-        src: url("{{ url_for('static', filename='DancingScript') }}") format("woff"); 
+        src: url("{{ url_for('static', filename='DancingScript.woff') }}") format("woff"); 
     }
     @font-face {
         font-family: "DancingScriptBold";
-        src: url("{{ url_for('static', filename='DancingScript-Bold') }}") format("woff"); 
+        src: url("{{ url_for('static', filename='DancingScript-Bold.woff') }}") format("woff"); 
     }
     </style>
 
