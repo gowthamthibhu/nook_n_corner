@@ -28,8 +28,9 @@ def login():
         cursor.execute(f"select * from account where username = '{username}' and password = '{password}'")
         account = cursor.fetchone()
         if account:
-            session['loggedin']=True
-            session['username']=account['username']
+            session['loggedin'] = True
+            session['username'] = account['username']
+            session['storename'] = account['storename']
             return redirect(url_for('account'))
         else:
             return render_template('login.html')
@@ -57,7 +58,7 @@ def account():
         amount = request.form['amount']
         itemtype = request.form.get('itemtype')
         cursor =mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-        cursor.execute(f"insert into discount values('{discountname}', {validity}, {amount}, {itemtype}')")
+        cursor.execute(f"insert into discount values('{session['storename']}', {validity}, {amount}, '{discountname}', '{itemtype}')")
         cursor.connection.commit()
         return redirect(url_for('account'))
     return render_template("account.html")
