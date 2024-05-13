@@ -13,7 +13,8 @@ mysql = MySQL(app)
 
 @app.route('/')
 def index():
-    return render_template("index.html")
+    #return render_template("index.html")
+    return redirect(url_for("home"))
 
 @app.route("/home", methods=['GET','POST'])
 def home():
@@ -24,7 +25,7 @@ def login():
     if request.method == "POST" and "username" in request.form and "password" in request.form:
         username = request.form['username']
         password = request.form['password']
-        cursor = mysql.connection.cursor(MySQL.cursor.DictCursor)
+        cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
         cursor.execute(f"select * from account where username = '{username}' and password = '{password}'")
         account = cursor.fetchone()
         if account:
@@ -45,39 +46,43 @@ def register():
         storename = request.form['storename']
         storetype = request.form.get('storetype')
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-        cursor.execute(f"insert into account values('{username}', '{password}', {phonenum}, '{storename}', '{storetype}')")
+        cursor.execute(f"insert into account values('{username}', '{password}', '{storename}', '{storetype}', '{phonenum}')")
         cursor.connection.commit()
         return redirect(url_for('account'))
     return render_template("register.html")
 
 @app.route("/account",methods=['POST','GET'])
 def account():
-    if session['loggedin']:
+    if 'loggedin' in session:
         if request.method == "POST" and "discountname" in request.form and "validity" in request.form and "amount" in request.form and "itemtype" in request.form:
             discountname = request.form['discountname']
             validity = request.form['validity']
             amount = request.form['amount']
             itemtype = request.form.get('itemtype')
             cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-            cursor.execute(f"insert into discount values('{session['storename']}', {validity}, {amount}, '{discountname}', '{itemtype}')")
+            cursor.execute(f"insert into discount(storename, validity, amount, discountname, itemtype) values('{session['storename']}', {validity}, {amount}, '{discountname}', '{itemtype}')")
             cursor.connection.commit()
             return redirect(url_for('account'))
         mcursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
         mcursor.execute(f"select * from discount where storename = '{session['storename']}'")
         available = mcursor.fetchall()
-        return render_template("account.html", available=available)
+        return render_template("account.html", available=available, storename=session['storename'])
     return render_template("login.html")
 
 @app.route("/deleteDiscount/<int:id>", methods=['POST', 'GET'])
 def deleteDiscount(id):
     cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-    try:
-        cursor.execute(f"delete from discount where id = {id}")
-        cursor.connection.commit()
-        return redirect(url_for("account"))
-    except Exception:
-        return Exception, redirect(url_for("home"))
+    cursor.execute(f"delete from discount where discountid = {id}")
+    cursor.connection.commit()
+    return redirect(url_for("account"))
 
+@app.route("/logout")
+def logout():
+    session.pop('loggedin', None)
+    session.pop('username', None)
+    session.pop('storename', None)
+    return redirect(url_for("home"))
+    
 @app.route("/grocery")
 def grocery():
     cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
@@ -99,5 +104,13 @@ def clothing():
     store = cursor.fetchall()
     return render_template("clothing.html", store=store)
 
+@app.route('/store/<string:stname>', methods=['GET','POST'])
+def store(stname):
+    cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+    cursor.execute(f"select * from discount where storename = '{stname}'")
+    stinfo = cursor.fetchall()
+    print(stinfo)
+    return render_template("store.html", storename=stname, stinfo=stinfo)
+
 if __name__ == "__main__":
-    app.run(port=5000, debug=True, threaded=True)
+    app.run(threaded=True, port=5000, debug=True)

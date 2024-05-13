@@ -17,7 +17,7 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
+                <a class="nav-link active" aria-current="page" href="{{ url_for('home') }}">Home</a>
               </li>
             </ul>
           </div>
@@ -30,12 +30,12 @@
             <form method="POST" action="{{ url_for('login') }}">
                 <div class="card-body">
                   <h5 class="card-title">Username</h5>
-                  <input type="email" class="form-control" id="exampleFormControlInput1" name="username" placeholder="Enter Username">
+                  <input type="username" class="form-control" id="exampleFormControlInput1" name="username" placeholder="Enter Username">
                   <br>
                   <h5 class="card-title">Password</h5>
-                  <input type="email" class="form-control" id="exampleFormControlInput1" name="password" placeholder="Enter Password">
+                  <input type="password" class="form-control" id="exampleFormControlInput1" name="password" placeholder="Enter Password">
                   <br>
-                  <a href="">Click Here To Register</a>
+                  <a href="{{ url_for('register') }}">Click Here To Register</a>
                   <br>
                   <br>
                   <button class="btn btn-outline-primary" name="action" type="submit">Login</button>

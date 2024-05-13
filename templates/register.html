@@ -17,7 +17,7 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
+                <a class="nav-link active" aria-current="page" href="{{ url_for('home') }}">Home</a>
               </li>
             </ul>
           </div>
@@ -30,16 +30,16 @@
             <form method="POST" action="{{ url_for('register') }}">
                 <div class="card-body">
                   <h5 class="card-title">Username</h5>
-                  <input type="email" class="form-control" id="exampleFormControlInput1" name="username" placeholder="Enter Username" required>
+                  <input type="username" class="form-control" id="exampleFormControlInput1" name="username" placeholder="Enter Username" required>
                   <br>
                   <h5 class="card-title">Password</h5>
-                  <input type="email" class="form-control" id="exampleFormControlInput1" name="password" placeholder="Enter Password" required>
+                  <input type="password" class="form-control" id="exampleFormControlInput1" name="password" placeholder="Enter Password" required>
                   <br>
                   <h5 class="card-title">Phone Number</h5>
-                  <input type="email" class="form-control" id="exampleFormControlInput1" name="phonenum" placeholder="Enter Phone Number" required>
+                  <input type="text" class="form-control" id="exampleFormControlInput1" name="phonenum" placeholder="Enter Phone Number" required>
                   <br>
                   <h5 class="card-title">Store Name</h5>
-                  <input type="email" class="form-control" id="exampleFormControlInput1" name="storename" placeholder="Enter Store Name" required>
+                  <input type="text" class="form-control" id="exampleFormControlInput1" name="storename" placeholder="Enter Store Name" required>
                   <br>
                   <h5 class="card-title">Select Store Type</h5>
                   <select class="form-select" aria-label="Default select example" name="storetype" required>
