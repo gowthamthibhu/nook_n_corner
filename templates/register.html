@@ -30,13 +30,19 @@
             <form method="POST" action="{{ url_for('register') }}">
                 <div class="card-body">
                   <h5 class="card-title">Username</h5>
-                  <input type="email" class="form-control" id="exampleFormControlInput1" name="username" placeholder="Enter Username">
+                  <input type="email" class="form-control" id="exampleFormControlInput1" name="username" placeholder="Enter Username" required>
                   <br>
                   <h5 class="card-title">Password</h5>
-                  <input type="email" class="form-control" id="exampleFormControlInput1" name="password" placeholder="Enter Password">
+                  <input type="email" class="form-control" id="exampleFormControlInput1" name="password" placeholder="Enter Password" required>
+                  <br>
+                  <h5 class="card-title">Phone Number</h5>
+                  <input type="email" class="form-control" id="exampleFormControlInput1" name="phonenum" placeholder="Enter Phone Number" required>
+                  <br>
+                  <h5 class="card-title">Store Name</h5>
+                  <input type="email" class="form-control" id="exampleFormControlInput1" name="storename" placeholder="Enter Store Name" required>
                   <br>
                   <h5 class="card-title">Select Store Type</h5>
-                  <select class="form-select" aria-label="Default select example">
+                  <select class="form-select" aria-label="Default select example" name="storetype" required>
                     <option selected disabled>Store Type</option>
                     <option value="grocery">Grocery</option>
                     <option value="accessory">Accessory</option>

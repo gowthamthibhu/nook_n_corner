@@ -48,14 +48,14 @@
           <div class="collapse" id="collapseExample">
             <div class="card card-body">
                 <form method="POST" action="{{ url_for('login') }}">
-                    <input type="email" class="form-control" id="exampleFormControlInput1" name="password" placeholder="Enter a name for your discount">
+                    <input type="email" class="form-control" id="exampleFormControlInput1" name="discountname" placeholder="Enter a name for your discount">
                     <br>
                     <!-- <h5 class="card-title">Password</h5> -->
-                    <input type="email" class="form-control" id="exampleFormControlInput1" name="password" placeholder="Enter Validity">
+                    <input type="email" class="form-control" id="exampleFormControlInput1" name="validity" placeholder="Enter Validity">
                     <br>
-                    <input type="email" class="form-control" id="exampleFormControlInput1" name="password" placeholder="Amount of Discount">
+                    <input type="email" class="form-control" id="exampleFormControlInput1" name="amount" placeholder="Amount of Discount">
                     <br>
-                    <select class="form-select" aria-label="Default select example">
+                    <select class="form-select" aria-label="Default select example" name="itemtype">
                         <option selected disabled>Item Type</option>
                         <option value="grocery">Grocery</option>
                         <option value="accessory">Accessory</option>
