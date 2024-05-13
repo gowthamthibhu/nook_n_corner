@@ -17,7 +17,7 @@ def index():
 
 @app.route("/home", methods=['GET','POST'])
 def home():
-    pass
+    return render_template("home.html")
 
 @app.route("/login", methods=['POST', 'GET'])
 def login():
@@ -52,17 +52,52 @@ def register():
 
 @app.route("/account",methods=['POST','GET'])
 def account():
-    if request.method == "POST" and "discountname" in request.form and "validity" in request.form and "amount" in request.form and "itemtype" in request.form:
-        discountname = request.form['discountname']
-        validity = request.form['validity']
-        amount = request.form['amount']
-        itemtype = request.form.get('itemtype')
-        cursor =mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-        cursor.execute(f"insert into discount values('{session['storename']}', {validity}, {amount}, '{discountname}', '{itemtype}')")
-        cursor.connection.commit()
-        return redirect(url_for('account'))
-    return render_template("account.html")
+    if session['loggedin']:
+        if request.method == "POST" and "discountname" in request.form and "validity" in request.form and "amount" in request.form and "itemtype" in request.form:
+            discountname = request.form['discountname']
+            validity = request.form['validity']
+            amount = request.form['amount']
+            itemtype = request.form.get('itemtype')
+            cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+            cursor.execute(f"insert into discount values('{session['storename']}', {validity}, {amount}, '{discountname}', '{itemtype}')")
+            cursor.connection.commit()
+            return redirect(url_for('account'))
+        mcursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+        mcursor.execute(f"select * from discount where storename = '{session['storename']}'")
+        available = mcursor.fetchall()
+        return render_template("account.html", available=available)
+    return render_template("login.html")
 
+@app.route("/deleteDiscount/<int:id>", methods=['POST', 'GET'])
+def deleteDiscount(id):
+    cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+    try:
+        cursor.execute(f"delete from discount where id = {id}")
+        cursor.connection.commit()
+        return redirect(url_for("account"))
+    except Exception:
+        return Exception, redirect(url_for("home"))
+
+@app.route("/grocery")
+def grocery():
+    cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+    cursor.execute("select * from account where storetype = 'grocery'")
+    store = cursor.fetchall()
+    return render_template("grocery.html", store=store)
+
+@app.route("/accessory")
+def accessory():
+    cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+    cursor.execute("select * from account where storetype = 'accessory'")
+    store = cursor.fetchall()
+    return render_template("accessory.html", store=store)
+
+@app.route("/clothing")
+def clothing():
+    cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+    cursor.execute("select * from account where storetype = 'clothing'")
+    store = cursor.fetchall()
+    return render_template("clothing.html", store=store)
 
 if __name__ == "__main__":
     app.run(port=5000, debug=True, threaded=True)

@@ -54,11 +54,11 @@
     }
     @font-face {
         font-family: "DancingScript";
-        src: url("/static/DancingScript.woff") format("woff"); 
+        src: url("{{ url_for('static', filename='DancingScript') }}") format("woff"); 
     }
     @font-face {
         font-family: "DancingScriptBold";
-        src: url("/static/DancingScript-Bold.woff") format("woff"); 
+        src: url("{{ url_for('static', filename='DancingScript-Bold') }}") format("woff"); 
     }
     </style>
 

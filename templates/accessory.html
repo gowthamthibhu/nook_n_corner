@@ -23,34 +23,23 @@
           </div>
         </div>
     </nav>
-    <div class="container" style="margin-top: 2pc;" align=center>
-      <h3></h3>
-        <div class="card" style="width: 18rem;">
-          <a href="">
-            <img src="" class="card-img-top" alt="...">
-
-          </a>
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <a href="#" class="btn btn-primary">View Offers</a>
-          </div>
-      </div>
-    </div>
 
     <div class="container" style="margin-top: 2pc;" align=center>
-        <h3>Available Stores</h3>
+        <h3>Accessory Stores</h3>
     </div>
 
+    {% for i in store %}
     <div class="container" style="margin-top: 2pc;">
       <div class="row">
         <div class="col-6">
           <img alt="" src="https://www.eatthis.com/wp-content/uploads/sites/4/2020/07/grocery-store-interior.jpg?quality=82&strip=1" width="150">  
         </div>
         <div class="col-6">
-          <p><b>{{ storename }}</b></p>
+          <p><b>{{ i['storename'] }}</b></p>
         </div> 
       </div>
     </div>
+    {% endfor %}
 
     <style>
     .center-block{

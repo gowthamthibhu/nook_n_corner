@@ -37,14 +37,6 @@
                 {{ storename }}
             </div>
         </div>
-        <div class="row">
-            <div class="col-4">
-                Store Type:
-            </div>
-            <div class="col-8">
-                {{ storetype }}
-            </div>
-        </div>
     </div>
 
     <div class="container">
@@ -78,6 +70,7 @@
 
     <div class="container" style="margin-top: 2pc;" align=center>
       <h3>Active Discounts</h3>
+      <h4> {{ msg }} </h4>
     </div>
     <div class="container" align=left>
       {% for i in available %}
@@ -108,7 +101,9 @@
         </div>
         </div>
         <br>
-        <a class="btn btn-outline-danger" href="">Delete Discount</a>
+        <form action="{{ url_for('deleteDiscount', id=i['discountid']) }}">
+          <button class="btn btn-outline-danger" type="submit">Delete Discount</button>
+        </form>
       </div>
      </div>
      {% endfor %}
@@ -123,11 +118,11 @@
     }
     @font-face {
         font-family: "DancingScript";
-        src: url("/static/DancingScript.woff") format("woff"); 
+        src: url("{{ url_for('static', filename='DancingScript') }}") format("woff"); 
     }
     @font-face {
         font-family: "DancingScriptBold";
-        src: url("/static/DancingScript-Bold.woff") format("woff"); 
+        src: url("{{ url_for('static', filename='DancingScript-Bold') }}") format("woff"); 
     }
     </style>
 
