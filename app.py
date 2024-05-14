@@ -41,6 +41,7 @@ def login():
 
 @app.route("/register", methods=['POST','GET'])
 def register():
+    msg=''
     if request.method == "POST" and "username" in request.form and "password" in request.form and "phonenum" in request.form and "storename" in request.form and "storetype" in request.form and "location" in request.form and "imagelink" in request.form:
         username = request.form['username']
         password = request.form['password']
@@ -52,7 +53,8 @@ def register():
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
         cursor.execute(f"insert into account values('{username}', '{password}', '{storename}', '{storetype}', '{phonenum}', '{imagelink}', '{location}')")
         cursor.connection.commit()
-        return redirect(url_for('account'))
+        msg='Your application has been queued you will recive mail when your store is approved'
+        return render_template("login.html", msg=msg)
     return render_template("register.html")
 
 @app.route("/account",methods=['POST','GET'])
@@ -111,7 +113,7 @@ def clothing():
 @app.route('/store/<string:stname>', methods=['GET','POST'])
 def store(stname):
     cr = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-    cr.execute(f"select imagelink from account where username = '{session['username']}'")
+    cr.execute(f"select imagelink from account where storename = '{stname}'")
     imagelink = cr.fetchone()
     cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
     cursor.execute(f"select * from discount where storename = '{stname}'")
