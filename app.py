@@ -39,14 +39,16 @@ def login():
 
 @app.route("/register", methods=['POST','GET'])
 def register():
-    if request.method == "POST" and "username" in request.form and "password" in request.form and "phonenum" in request.form and "storename" in request.form and "storetype" in request.form:
+    if request.method == "POST" and "username" in request.form and "password" in request.form and "phonenum" in request.form and "storename" in request.form and "storetype" in request.form and "location" in request.form and "imagelink" in request.form:
         username = request.form['username']
         password = request.form['password']
         phonenum = request.form['phonenum']
         storename = request.form['storename']
         storetype = request.form.get('storetype')
+        location = request.form['location']
+        imagelink = request.form['imagelink']
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-        cursor.execute(f"insert into account values('{username}', '{password}', '{storename}', '{storetype}', '{phonenum}')")
+        cursor.execute(f"insert into account values('{username}', '{password}', '{storename}', '{storetype}', '{phonenum}', '{imagelink}', '{location}')")
         cursor.connection.commit()
         return redirect(url_for('account'))
     return render_template("register.html")
@@ -106,11 +108,14 @@ def clothing():
 
 @app.route('/store/<string:stname>', methods=['GET','POST'])
 def store(stname):
+    cr = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+    cr.execute(f"select imagelink from account where username = '{session['username']}'")
+    imagelink = cr.fetchone()
     cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
     cursor.execute(f"select * from discount where storename = '{stname}'")
     stinfo = cursor.fetchall()
     print(stinfo)
-    return render_template("store.html", storename=stname, stinfo=stinfo)
+    return render_template("store.html", storename=stname, stinfo=stinfo, imagelink=imagelink)
 
 if __name__ == "__main__":
     app.run(threaded=True, port=5000, debug=True)
