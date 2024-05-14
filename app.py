@@ -22,6 +22,7 @@ def home():
 
 @app.route("/login", methods=['POST', 'GET'])
 def login():
+    msg=''
     if request.method == "POST" and "username" in request.form and "password" in request.form:
         username = request.form['username']
         password = request.form['password']
@@ -34,7 +35,8 @@ def login():
             session['storename'] = account['storename']
             return redirect(url_for('account'))
         else:
-            return render_template('login.html')
+            msg='Wrong Info'
+            return render_template('login.html', msg=msg)
     return render_template("login.html")
 
 @app.route("/register", methods=['POST','GET'])
