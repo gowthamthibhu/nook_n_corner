@@ -39,6 +39,7 @@
         </div>
         <div class="col-6">
           <p><b>{{ i['storename'] }}</b></p>
+          <p><b>Location:{{ i['location'] }}</b></p>
           <p><b>Phone Num:{{ i['phoneno'] }}</b></p>
           <form action="{{ url_for('store', stname=i['storename']) }}">
             <button class="btn btn-outline-primary" type="submit">Explore</button>
